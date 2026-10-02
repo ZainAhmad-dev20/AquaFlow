@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # aquaflow
 
 A fully animated Flutter application
@@ -15,3 +16,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# AquaFlow
+Fully animated Flutter application
+>>>>>>> 0272d9bdea53cc17c735afe0f368eb81e5018e23
