@@ -200,8 +200,8 @@ class _SplashScreenState extends State<SplashScreen>
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: AquaColors.cyan.withOpacity(
-                                      0.2 + glow * 0.4,
+                                    color: AquaColors.cyan.withValues(alpha:
+                                    0.2 + glow * 0.4,
                                     ),
                                     blurRadius: 25 + glow * 30,
                                     spreadRadius: 3 + glow * 4,
@@ -239,7 +239,7 @@ class _SplashScreenState extends State<SplashScreen>
                           style: TextStyle(
                             fontSize: 12,
                             letterSpacing: 5,
-                            color: Colors.white.withOpacity(0.65),
+                            color: Colors.white.withValues(alpha: 0.65),
                           ),
                         ),
 
@@ -272,7 +272,7 @@ class _SplashScreenState extends State<SplashScreen>
                     style: TextStyle(
                       fontSize: 10,
                       letterSpacing: 3,
-                      color: Colors.white.withOpacity(0.4),
+                      color: Colors.white.withValues(alpha: 0.4),
                     ),
                   ),
                 ),
@@ -313,11 +313,11 @@ class BubblePainter extends CustomPainter {
       final center = Offset(x, y);
 
       final fillPaint = Paint()
-        ..color = Colors.white.withOpacity(opacity)
+        ..color = Colors.white.withValues(alpha: opacity)
         ..style = PaintingStyle.fill;
 
       final borderPaint = Paint()
-        ..color = Colors.white.withOpacity(opacity + 0.08)
+        ..color = Colors.white.withValues(alpha: opacity + 0.08)
         ..style = PaintingStyle.stroke
         ..strokeWidth = 0.8;
 
@@ -325,7 +325,7 @@ class BubblePainter extends CustomPainter {
       canvas.drawCircle(center, radius, borderPaint);
 
       final highlightPaint = Paint()
-        ..color = Colors.white.withOpacity(0.2);
+        ..color = Colors.white.withValues(alpha: 0.2);
 
       canvas.drawCircle(
         Offset(x - radius * 0.3, y - radius * 0.3),
@@ -477,8 +477,8 @@ class _LiquidButtonState extends State<LiquidButton>
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: AquaColors.cyan.withOpacity(
-                        _isPressed ? 0.12 : 0.38,
+                      color: AquaColors.cyan.withValues(alpha:
+                      _isPressed ? 0.12 : 0.38,
                       ),
                       blurRadius: _isPressed ? 10 : 25,
                       spreadRadius: _isPressed ? 0 : 2,
@@ -557,8 +557,8 @@ class RipplePainter extends CustomPainter {
     final radius = progress * maxRadius;
 
     final paint = Paint()
-      ..color = Colors.white.withOpacity(
-        (1 - progress) * 0.45,
+      ..color = Colors.white.withValues(alpha:
+      (1 - progress) * 0.45,
       )
       ..style = PaintingStyle.stroke
       ..strokeWidth = 3 * (1 - progress);
@@ -645,7 +645,20 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       body: Stack(
         children: [
           const Positioned.fill(
-            child: AquaBackground(child: SizedBox.expand()),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    AquaColors.background,
+                    AquaColors.darkBlue,
+                    AquaColors.purple,
+                    AquaColors.background,
+                  ],
+                ),
+              ),
+            ),
           ),
 
           const Positioned.fill(
@@ -691,7 +704,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: AquaColors.cyan.withOpacity(0.35),
+                                    color: AquaColors.cyan.withValues(alpha: 0.35),
                                     blurRadius: 35,
                                     spreadRadius: 4,
                                   ),
@@ -724,7 +737,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                               style: TextStyle(
                                 fontSize: 15,
                                 height: 1.6,
-                                color: Colors.white.withOpacity(0.65),
+                                color: Colors.white.withValues(alpha: 0.65),
                               ),
                             ),
 
@@ -744,7 +757,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                               style: TextStyle(
                                 fontSize: 9,
                                 letterSpacing: 2,
-                                color: Colors.white.withOpacity(0.4),
+                                color: Colors.white.withValues(alpha: 0.4),
                               ),
                             ),
                           ],
